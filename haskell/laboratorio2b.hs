@@ -13,7 +13,7 @@ ordenaNum x y = if x < y then (x, y) else (y, x)
 
 -- 4) esMultiplo : dado un entero n devuelve True si n es múltiplo de 2.
 esMultiplo :: Int -> Bool
-esMultiplo n = if mod n 2 == 0 then True else False
+esMultiplo = even
 
 -- 5) mayorNumeros : que dada una una terna de enteros devuelve una terna de valores booleanos }
 -- que indica si cada uno de los enteros es mayor que 3. Por ejemplo: mayor3:(1; 4; 3) = (False;True; False)
@@ -46,11 +46,9 @@ deleteOdds (x : xs) = if odd x then x : deleteOdds xs else deleteOdds xs
 quicksort :: [Int] -> [Int]
 quicksort [] = []
 quicksort (x : xs) = quicksort [y | y <- xs, y <= x] ++ [x] ++ quicksort [y | y <- xs, y > x]
--- What happens here is that the first element of the list is taken as the pivot, and the
--- elements smaller than it are put in the left part of the list, and the elements bigger than
--- it are put in the right part of the list.
+
 impares :: [Int] -> [Int]
-impares x = quicksort (deleteOdds x)
+impares x = quicksort $ deleteOdds x
 
 -- 8) Implemente una función que haga una búsqueda por substrings de inicio. Considere siempre
 -- los n-primeros caracteres que el usuario pasa en la línea de comando. Ejemplo:
@@ -74,5 +72,6 @@ main = do
   print ("Ordena pares [1,2] " ++ show (ordenaNum 1 2))
   print ("Si 56 es multiplo de 2 " ++ show (esMultiplo 56))
   print ("Mayor numeros de [1,2,3] " ++ show (mayorNumeros [1, 2, 5]))
-  print ("Lista sin el elemento en la posicion 3 " ++ show (del_posicion_n [1, 3, 4, 1, 3, 2] 4))
+  print ("Lista sin el elemento en la posicion 4 " ++ show (del_posicion_n [1, 3, 4, 1, 3, 2] 4))
   print ("Lista de impares ordenada " ++ show (impares [3, 6, 4, 8, 1, 9, 7]))
+  

@@ -47,11 +47,11 @@ operateTree (NoEA (c, i, d)) =
 main::IO ()
 main= do
     print "Ejercicio1"
-    print $ listOfNodes (N 1 (H 2) (H 3))
+    print $ listOfNodes (N "a" (H "b") (H "c"))
     print "Ejercicio2"
-    print $ preOrder (N 1 (H 2) (H 3))
-    print $ postOrder (N 1 (H 2) (H 3))
+    print $ preOrder (N "a" (H "b") (H "c"))
+    print $ postOrder (N "a" (H "b") (H "c"))
     print "Ejercicio3"
-    print $ similarTree (N 1 (H 2) (H 3)) (N 1 (H 2) (H 3))
+    print $ similarTree (N "a" (H "b") (H "c")) (N "a" (H "b") (H "c"))
     print "Ejercicio4"
     print $ operateTree ea
